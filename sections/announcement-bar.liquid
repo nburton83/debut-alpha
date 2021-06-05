@@ -1,0 +1,70 @@
+
+{% if section.settings.message %}
+  {% if section.settings.home_page_only == false or template.name == 'index' %}
+      <div class="announcement-bar" id="announcement-bar">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.announcement_link -%}
+            <a href="{{ block.settings.announcement_link }}" class="announcement-bar announcement-bar--link">
+              <p class="announcement-bar__message">{{ block.settings.announcement_text }}</p>
+            </a>
+            {%- break -%}
+          {% else %}
+              <p class="announcement-bar__message">{{ block.settings.announcement_text }}</p>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+  {% endif %}
+{% endif %}
+  
+</style>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "checkbox",
+      "id": "message",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Announcement Bar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "announcement_text",
+          "label": "Announcement Text"
+        },
+        {
+          "type": "url",
+          "id": "announcement_link",
+          "label": "Announcement Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Content",
+      "name": "Announcement Bar",
+      "settings": {},
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

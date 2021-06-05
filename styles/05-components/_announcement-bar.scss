@@ -1,0 +1,33 @@
+.announcement-bar {
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+    z-index: 10;
+    background-color: white;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    padding: 2px; 
+}
+    
+  
+.announcement-bar__link {
+    display: block; 
+}
+  
+.announcement-bar__message {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    padding: 11px 22px;
+    text-align: center;
+    font-size: calc(((16) / (var(--font-size-base))) * 1em);
+    font-weight: var(--font-weight-header); 
+}
+
+@media only screen and (min-width: 750px) {
+      .announcement-bar__message {
+        padding-left: 55px;
+        padding-right: 55px; 
+    } 
+}
+

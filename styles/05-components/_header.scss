@@ -1,0 +1,18 @@
+.header__icon {
+  display: none;
+  position: absolute;
+
+  @include respond-to("small") {
+    width: 100px;
+    margin-left: 10px;
+  }
+
+  @include respond-to("medium") {
+    width: 10px;
+    margin-left: 35px;
+  }
+
+  &.open {
+    display: block;
+  };
+}
